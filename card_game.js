@@ -96,9 +96,9 @@ function guess(card1, card2){
   console.log(`Card 1 is the ${card1.rank} of ${card1.suit}`)
   let input = getInput("Input your guess. 1 for it's higher than card 2, or h for if it's lower than card 2")
   if (input == 1) {
-    return(card1.value-card2.value >= 0)
+    return(compare(card1, card2) >= 0)
   } else if(input == 'h') {
-    return (card1.value-card2.value < 0)
+    return (compare(card1, card2) < 0)
   } else { 
     console.log('Guesses must be inputted as 1 or h, you forfeit this round')
     return false
@@ -136,7 +136,7 @@ function playGame(){
   if (deck.length > 0) {
     console.log('Congratulations! You win!')
   } else { 
-    console.log('The deck is now empty, you lost with a score of ', score)
+    console.log('The deck is now empty, you lost with a score of ', score, ' out of the 5 points needed to win')
   }
 }
 playGame()
